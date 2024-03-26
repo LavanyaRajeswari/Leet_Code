@@ -7,13 +7,10 @@ public:
             ans[nums[i]]++;
             }
         }
-        int i = 1;
+        int i = 1,n = 0;
         for(auto it:ans){
             if(it.first != i) return i;
             else i++;
-        }
-        int n=0;
-        for(auto it:ans){
             n = max(it.first,n);
         }
         return n+1;
