@@ -1,12 +1,11 @@
 class Solution {
 public:
-    int merge(vector<int>& nums,int low,int mid,int high) {
-        int i = low, j = mid+1,ans = 0;
+    long long ans = 0;
+    void merge(vector<int>& nums,int low,int mid,int high) {
+        int i = low, j = mid+1;
         vector<int>temp;
         while(i <= mid) {
-            // cout<<nums[i]<<" "<<nums[j]<<endl;
             while(j <= high and (long long)nums[i] > (2LL*nums[j])) {
-                // cout<<(mid-i)+1<<endl;
                 j++;
             }
             ans += (j-(mid+1));
@@ -30,25 +29,23 @@ public:
         }
         for(int i = low; i <= high; i++) {
             nums[i] = temp[i-low];
-            // cout << temp[i] << " ";
         }
-        // cout<<endl;
-        return ans;
     }
-    int mergeSort(vector<int>& nums,int low,int high) {
+    void mergeSort(vector<int>& nums,int low,int high) {
         if(low >= high) {
-            return 0;
+            return;
         }
-        int ans = 0;
+        // int ans = 0;
         int mid = (low+high)/2;
-        ans += mergeSort(nums,low,mid);
-        ans += mergeSort(nums,mid+1,high);
-        ans += merge(nums,low,mid,high);
-        return ans;
+        mergeSort(nums,low,mid);
+        mergeSort(nums,mid+1,high);
+        merge(nums,low,mid,high);
+        // return ans;
     }
     int reversePairs(vector<int>& nums) {
         int n = nums.size()-1;
-        return mergeSort(nums,0,n);
+        mergeSort(nums,0,n);
+        return ans;
 
     }
 };
