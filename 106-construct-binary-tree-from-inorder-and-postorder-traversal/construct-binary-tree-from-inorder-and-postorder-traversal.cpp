@@ -10,15 +10,13 @@
  * };
  */
 class Solution {
-    int j ;
 public:
+    int j;
     TreeNode* build(int a, int b,vector<int>& postorder,map<int,int>& mp) {
         if(a > b) return nullptr;
         TreeNode * root = new TreeNode(postorder[j]);
         int ind = mp[postorder[j]];
         j--;
-        // int left = ind - a;
-        // int right = b - ind;
         root->right = build(ind+1,b,postorder,mp);
         root->left = build(a,ind-1,postorder,mp);
         return root;
