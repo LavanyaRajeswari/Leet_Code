@@ -17,7 +17,6 @@ public:
                 c++;
             }
             prev[i] = c;
-            cout<<c<<" ";
         }
         for(int i = 0; i < m; i++) {
             if(q[i][0] == 0) {
