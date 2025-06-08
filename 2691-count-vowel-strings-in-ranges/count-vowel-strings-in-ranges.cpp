@@ -23,9 +23,6 @@ public:
             if(q[i][0] == 0) {
                 ans[i] = prev[q[i][1]];
             }
-            // else if(q[i][0] == q[i][1]) {
-            //     ans[i] = prev[q[i][0]];
-            // }
             else{
                 ans[i] = prev[q[i][1]] - prev[q[i][0]-1];
             }
