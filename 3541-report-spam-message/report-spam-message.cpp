@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool reportSpam(vector<string>& message, vector<string>& bannedWords) {
-        map<string,int>mp;
+        unordered_map<string,int>mp;
         int ans = 0;
         for(auto it:message) {
             mp[it]++;
