@@ -11,7 +11,6 @@ public:
             ans = (rec(board,word,i+1,j,k+1,n,m,vi) || rec(board,word,i,j+1,k+1,n,m,vi) || rec(board,word,i-1,j,k+1,n,m,vi) || rec(board,word,i,j-1,k+1,n,m,vi));
             if(ans == false) {
                 vi[i][j] = 0;
-                return false;
             }
         }
         return ans;
