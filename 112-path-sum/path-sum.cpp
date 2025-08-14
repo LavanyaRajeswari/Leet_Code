@@ -14,7 +14,6 @@ public:
     bool rec(TreeNode* root, int t, int cur) {
         if(root == NULL) return false;
         cur += root->val;
-        cout << root->val << " " << cur << endl;
         bool ans;
         if(root->left == NULL && root->right == NULL && cur == t) return true;
         ans = (rec(root->left,t,cur) || rec(root->right,t,cur));
