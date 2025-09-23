@@ -7,15 +7,11 @@ public:
     for(int i=0;i<strs.size();i++){
         sort(s[i].begin(),s[i].end());
         vector<int>x;
-        if(map[s[i]].size()==0){
-            x.push_back(i);
-            map[s[i]] = x; 
-        }
-        else{
+        if(map[s[i]].size() > 0){
             x = map[s[i]];
-            x.push_back(i);
-            map[s[i]] = x;
         }
+        x.push_back(i);
+        map[s[i]] = x;
     } 
     for(auto it:map){
         vector<string>m;
