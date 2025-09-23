@@ -16,7 +16,6 @@ public:
                 string word = s.substr(i,j-i+1);
                 if (mp.find(word) != mp.end() && dp[i]==1){
                     dp[j+1] = 1;
-                    // break;
                 }
             }
         }
