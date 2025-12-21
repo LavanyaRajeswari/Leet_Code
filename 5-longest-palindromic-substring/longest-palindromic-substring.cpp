@@ -9,17 +9,15 @@ class Solution {
       return true;
     }
     string longestPalindrome(string s) {
-        int n = s.length();
-        if(n == 0)return "";
-        int st=0,ed=1;
-        for(int i =0;i<n;i++){
-            for(int j =i;j<n;j++){
-                if(pal(s,i,j) && (j-i+1 > ed)){
-                    st =i;
-                    ed = j-i+1;
+        string ans = "";
+        for (int i = 0; i < s.size() ; i++) {
+            for (int j = i; j < s.size(); j++) {
+                if (pal(s, i, j)) {
+                    string t = s.substr(i, j - i + 1);
+                    ans = t.size() > ans.size() ? t : ans;
                 }
             }
         }
-        return s.substr(st,ed);
+        return ans;
     }
 };
