@@ -4,7 +4,7 @@ public:
     vector<vector<int>>v;
     int n = nums.size();
     int x=pow(2,n);
-    for(int i=0;i<x;i++){
+    for(int i=1;i<=x;i++){
         vector<int>ans;
         int temp=i,j=0;
         int a=pow(2,n-1);
