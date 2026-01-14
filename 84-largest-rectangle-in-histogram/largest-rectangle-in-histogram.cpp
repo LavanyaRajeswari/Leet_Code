@@ -9,8 +9,8 @@ public:
             while (!st.empty() && arr[st.top()] >= arr[i]) {
                 tp = st.top(); 
                 st.pop();
-                int width = st.empty() ? i : i - st.top() - 1;
-                res = max(res,  arr[tp] * width);
+                curr = arr[tp] * (st.empty() ? i : i - st.top() - 1);
+                res = max(res, curr);
             }
             st.push(i);
         }
