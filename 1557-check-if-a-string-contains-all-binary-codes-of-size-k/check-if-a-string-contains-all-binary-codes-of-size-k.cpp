@@ -17,7 +17,6 @@ public:
                     for(int it = x.length()-1; it >= 0; it--) {
                         if(x[it] == '1') t |= (1 << it);
                     }
-                    // cout << x << " " << t << endl;
                     mpp[t]++;
                 }
                 x.erase(0,1);
@@ -26,10 +25,8 @@ public:
             j++;
         }
         for(auto it:mpp) v.push_back(it.first);
-        // cout << num << endl;
         if(num != v.size()) return false;
         for(int i = 0; i < num; i++) {
-            // cout << v[i] << " ";
             if(v[i] != i) return false;
         }
         return ans;
