@@ -1,11 +1,16 @@
 class Solution {
 public:
-    int maxProfit(vector<int>& pr) {
-        int n = pr.size();
-        int ans = 0,mn = pr[0];
-        for(int i = 1; i < n; i++) {
-            mn = min(mn,pr[i]);
-            ans = max(ans,abs(mn-pr[i]));
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        int ans = 0, mx = 0;
+        vector<int>v;
+        for(int i = n-1; i >= 0; i--) {
+            mx = max(mx,prices[i]);
+            v.push_back(mx);
+        }
+        reverse(v.begin(), v.end());
+        for(int i = 0; i < n; i++) {
+            if(prices[i] < v[i]) ans = max(ans, v[i]- prices[i]);
         }
         return ans;
     }
