@@ -1,19 +1,16 @@
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
-        int n = nums.size();
-        if(n == 1) {
-            return;
+        int  n = nums.size();
+        if(n == 1) return;
+        k %= n;
+        vector<int>v;
+        for(int i = n-k; i < n; i++) {
+            v.push_back(nums[i]);
         }
-        if(n < k) {
-            k %= n;
+        for(int i = 0; i < n-k; i++) {
+            v.push_back(nums[i]);
         }
-        auto st = nums.begin()+(n-k),ed = nums.end();
-        vector<int>res(k);
-        copy(st,ed,res.begin());
-        res.resize(n);
-        st = nums.begin(),ed = nums.end() - k;
-        copy(st,ed,res.begin()+k);
-        nums = res;
+        nums = v;
     }
 };
